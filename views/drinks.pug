@@ -2,29 +2,15 @@ extends layout
 
 block content 
   h1= title
-  -
-    var results = [
-      {
-        drinks_name: 'Thumps Up',
-        company_name: 'Thumps Up',
-        drinks_quantity: 10
-      },
-      {
-        drinks_name: 'Mountain Dew',
-        company_name: 'Mountain Dew',
-        drinks_quantity: 5
-      },
-      {
-        drinks_name: 'Sprite',
-        company_name: 'Sprite',
-        drinks_quantity: 1
-      }
-    ];
   div.container-fluid
     div.row
       each drinks,index in results 
        div.col-sm-2(onclick=`buy(${index})`) drinks_name: #{ drinks["drinks_name"]} <br> company_name: #{drinks["company_name"]} <br> drinks_quantity: #{drinks["drinks_quantity"]}
-
+    <br>
+    button(name="ok" class="btn btn-success" onclick="ok()") Ok
+    button(name="ok" class="btn btn-info" onclick="ok()") Save
+    button(name="ok" class="btn btn-warning" onclick="ok()") Update
+    button(name="ok" class="btn btn-danger" onclick="ok()") Delete  
   script. 
       function buy(itemNo) 
       {
