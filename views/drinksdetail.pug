@@ -1,20 +1,23 @@
 extends layout
 block content
- h1= title
- - let drinksid = toShow._id
- - let drinksName = toShow.drinks_name
- - let drinksCompany = toShow.company_name
- - let drinksQuantity = toShow.drinks_quantity
- div
- div.row
- div(class='drinksAttr mr-3') Drinks ID is:
- div #{drinksid}
- div.row
- div(class='drinksAttr mr-3') Drinks Type is:
- div #{drinksName}
- div.row
- div(class='drinksAttr mr-3') Drinks Size is:
- div #{drinksCompany}
- div.row
- div(class='drinksAttr mr-3') Drinks Cost is:
- div #{drinksQuantity}
+ h1(class = 'container-fluid p-5 bg-sucess text-warning text-center')= title
+ if (toShow == null)
+  h2 No instance details
+ else
+    - let drinksid = toShow._id
+    - let drinksName = toShow.drinks_name
+    - let drinksCompany = toShow.company_name
+    - let drinksQuantity = toShow.drinks_quantity
+    div(class='justify-content-center p-2 text-center text-dark', style='background-color:#ccffff')
+        div.row
+            div(class='p-2 flex-fill drinksAttr mr-3') Drinks ID is:
+            div #{drinksid}
+        div.row
+            div(class='p-2 flex-fill drinksAttr mr-3') Drinks Type is:
+            div #{drinksName}
+        div.row
+            div(class='p-2 flex-fill drinksAttr mr-3') Drinks Size is:
+            div #{drinksCompany}
+        div.row
+            div(class='p-2 flex-fill drinksAttr mr-3') Drinks Cost is:
+            div #{drinksQuantity}
