@@ -35,9 +35,23 @@ exports.drinks_create_post = function(req, res) {
  res.send('NOT IMPLEMENTED: Drinks create POST');
 };
 // Handle Costume delete form on DELETE.
-exports.drinks_delete = function(req, res) {
+/*exports.drinks_delete = function(req, res) {
  res.send('NOT IMPLEMENTED: Costume delete DELETE ' + req.params.id);
-};
+};*/
+
+// Handle Costume delete on DELETE.
+exports.drinks_delete = async function(req, res) {
+    console.log("delete " + req.params.id)
+    try {
+    result = await drinks.findByIdAndDelete( req.params.id)
+    console.log("Removed " + result)
+    res.send(result)
+    } catch (err) {
+    res.status(500)
+    res.send(`{"error": Error deleting ${err}}`);
+    }
+   };
+
 // Handle Costume update form on PUT.
 exports.drinks_update_put =  async function(req, res) {
  //res.send('NOT IMPLEMENTED: Costume update PUT' + req.params.id);
