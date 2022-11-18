@@ -4,15 +4,19 @@ block content
   h1= title
   div.container-fluid
     div.row
-      each drinks,index in results 
-       div.col-sm-2(onclick=`buy(${index})`) drinks_name: #{ drinks["drinks_name"]} <br> company_name: #{drinks["company_name"]} <br> drinks_quantity: #{drinks["drinks_quantity"]}
+      each drinks,index in results
+       - let destination = `dispatch(\"/drinks/update?id=${drinks._id}\")` 
+       div.col-sm-2(onclick=`buy(${index})`) drinks_name: #{ drinks["drinks_name"]} <br> company_name: #{drinks["company_name"]} <br> drinks_quantity: #{drinks["drinks_quantity"]}<br>
+        button.btn( class="btn-primary ml-1", onclick= destination) Update
     <br>
-    button(name="ok" class="btn btn-success" onclick="ok()") Ok
-    button(name="ok" class="btn btn-info" onclick="ok()") Save
-    button(name="ok" class="btn btn-warning" onclick="ok()") Update
-    button(name="ok" class="btn btn-danger" onclick="ok()") Delete  
+  
   script. 
       function buy(itemNo) 
       {
         alert(`Places to visit ${itemNo+1}`)
       } 
+
+  script.
+   function dispatch(path){
+    window.location.href=path
+   }    
