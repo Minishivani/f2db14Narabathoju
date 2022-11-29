@@ -16,14 +16,14 @@ block content
     form(id='DrinksForm', class='d-flex justify-content p-2 bg-light text-center text-danger' action=actionid, method="PUT")
       div.form-group
           label.drinksAttr(for='drinks_name') Drink type
-          input#drinks_name(type='text', name='drinks_name', value='drinksName')
+          input#drinks_name(type='text', name='drinks_name', value=drinksName)
     
       div(class='d-flex justify-content p-2 bg-light text-center text-danger').form-group
           label.drinksAttr(for='company_name') Company Name
-          input#company_name(type='text', name='company_name', value='drinksCompany')
+          input#company_name(type='text', name='company_name', value=drinksCompany)
       div(class='d-flex justify-content p-2 bg-light text-center text-danger' ).form-group
           label.drinksAttr(for='drinks_quantity') Drinks quantity
-          input#drinks_quantity(type='number', name='drinks_quantity', value=2)
+          input#drinks_quantity(type='number', name='drinks_quantity', value=drinksQuantity)
       input(type="submit")
 
   script.

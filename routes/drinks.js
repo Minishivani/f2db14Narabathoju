@@ -13,7 +13,7 @@ const secured = (req, res, next) => {
 router.get('/', drinks_controlers.drinks_view_all_Page );
 router.get('/drinks/:id', drinks_controlers.drinks_detail); 
 
-router.get('/detail', drinks_controlers.drinks_view_one_Page);
+router.get('/detail', secured,drinks_controlers.drinks_view_one_Page);
 
 /* GET create drinks page */
 router.get('/create',secured, drinks_controlers.drinks_create_Page);
